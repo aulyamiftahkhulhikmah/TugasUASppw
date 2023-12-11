@@ -8,7 +8,7 @@ def main():
 
     st.set_page_config(
         page_title="Aplikasi Kategori Berita | Klasifikasi Berita Radar Jatim", page_icon="📺")
-
+        st.write("Oleh | Aulya Miftahkhul Hikmah | 200411100050")
     col1, col2 = st.columns(2)
 
     with col1:
