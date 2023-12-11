@@ -7,7 +7,7 @@ from generate_label import get_label
 def main():
 
     st.set_page_config(
-        page_title="Aplikasi Kategori Berita | Klasifikasi Berita CNN Indonesia", page_icon="📺")
+        page_title="Aplikasi Kategori Berita | Klasifikasi Berita Radar Jatim", page_icon="📺")
 
     col1, col2 = st.columns(2)
 
@@ -17,7 +17,7 @@ def main():
 
     with col2:
         st.subheader("News Classification: Aplikasi Kategori untuk Berita")
-        st.caption("Berita umumnya dikategorikan menjadi beberapa jenis kategori seperti olahraga, ekonomi, hiburan dan kategori lainnya. Dengan news classification ini kita dapat menemukan jenis kategori berita yang sesuai dengan isi berita tersebut.")
+        st.caption("Berita umumnya dikategorikan menjadi beberapa jenis kategori seperti pendidikan, sosial, religi dan kategori lainnya. Dengan news classification ini kita dapat menemukan jenis kategori berita yang sesuai dengan isi berita tersebut.")
 
     news_text = st.text_area(
         "Masukkan Isi Berita", key="input_text", height=250)
@@ -27,26 +27,22 @@ def main():
             text = get_label(news_text)
             with st.expander('Tampilkan Hasil'):
                 st.write('Berita yang anda masukkan termasuk dalam kategori: ')
-                if text == "edukasi":
+                if text == "pendidikan":
                     st.info(text, icon="🧑‍🏫")
-                    url = "https://www.google.com/search?q=berita+edukasi+hari+ini"
+                    url = "https://radarjatim.id/?s=berita+pendidikan+hari+ini"
                     st.write(
-                        'Baca juga berita terbaru terkait edukasi 🔎 [Berita edukasi hari ini](%s)'  %url)
-                elif text == "olahraga":
+                        'Baca juga berita terbaru terkait pendidikan 🔎 [Berita pendidikan hari ini](%s)'  %url)
+                elif text == "sosial":
                     st.info(text, icon="🚣")
-                    url = "https://www.google.com/search?q=berita+olahraga+hari+ini"
+                    url = "https://radarjatim.id/?s=berita+sosial+hari+ini"
                     st.write(
-                        'Baca juga berita terbaru terkait olahraga 🔎 [Berita olahraga hari ini](%s)'  %url)
-                elif text == "ekonomi":
+                        'Baca juga berita terbaru terkait sosial 🔎 [Berita sosial hari ini](%s)'  %url)
+                elif text == "religi":
                     st.info(text, icon="💸")
-                    url = "https://www.google.com/search?q=berita+ekonomi+hari+ini"
+                    url = "https://radarjatim.id/?s=berita+religi+hari+ini"
                     st.write(
-                        'Baca juga berita terbaru terkait ekonomi 🔎 [Berita ekonomi hari ini](%s)'  %url)
-                elif text == "hiburan":
-                    st.info(text, icon="🎥")
-                    url = "https://www.google.com/search?q=berita+hiburan+hari+ini"
-                    st.write(
-                        'Baca juga berita terbaru terkait hiburan 🔎 [Berita hiburan hari ini](%s)'  %url)
+                        'Baca juga berita terbaru terkait religi 🔎 [Berita religi hari ini](%s)'  %url)
+                
         else:
             time.sleep(.5)
             st.toast('Masukkan teks terlebih dahulu', icon='🤧')
